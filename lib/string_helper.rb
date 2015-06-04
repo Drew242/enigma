@@ -2,7 +2,7 @@
 
 class StringHelper
 
-  def self.chunk(input_string) # breaks input string into maleable chunks
+  def self.chunk(input_string) # breaks input string into flexible chunks
     chunks =[]
     input_string.chars.each_slice(4) do |slice|
       chunks << slice

@@ -2,6 +2,7 @@ require_relative "key_generator"
 require_relative "string_helper"
 
 class Encryptor
+  attr_reader :key_generator
 
   def initialize
     @key_generator = KeyGenerator.new

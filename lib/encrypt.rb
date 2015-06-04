@@ -3,6 +3,7 @@ require_relative "string_helper"
 require_relative "encryptor"
 
 class Encrypt
+  attr_reader :encryptor
 
   def initialize(input_path, output_path)
     @io = IoHelper.new(input_path, output_path)
@@ -13,16 +14,12 @@ class Encrypt
     @io.write(@encrypted_message)
   end
 
-  # def self.some_keys
-  #   require "pry"; binding.pry
-  #   @key_generator.rotation
-  # end
 
   if __FILE__ == $0
     input_path = ARGV[0]
     output_path = ARGV[1]
     encrypt = Encrypt.new(input_path, output_path)
-    puts "Created #{output_path} with the key #{some_keys}."
+    puts "Created #{output_path} with the key #{encrypt.encryptor.key_generator.rotation}."
   end
 
 end
